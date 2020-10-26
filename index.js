@@ -8,9 +8,23 @@ let temp = "Temperature = ",
   city = "moorhead",
   st = "mn";
 
-store();
+// detail weather vars
+let localCity = "",
+  LocalSt="",
+  LocalCntry="",
+  forecastDate="",
+  forecastDayMaxTemp="",
+  forecastDayMinTemp="",
+  forecastDayMaxWind="",
+  forecastDayHumid="",
+  forecastDayRainChance="",
+  forecastDaySnowChance="",
+  forecastDayCndtnTxt="",
+  forecastDayCndtnIcon="",
 
-//* Set initial city, st or get current from store
+
+
+// SECTION: Set initial city, st or get current from store
 // function store(city,st){
 function store(){
   if(localStorage.getItem('city')===null){
@@ -25,10 +39,9 @@ function store(){
     return city,st
 }
 
-//* call getWthr
-getWthr()
+store();
 
-// * fetch weather and details
+// SECTION: fetch weather and details
 function getWthr(){
   // declare vars
   let api = "https://api.weatherapi.com/v1/current.json?key="
@@ -45,7 +58,7 @@ function getWthr(){
       console.log(data);
       document.getElementById("local").innerHTML = data.location.name;
       document.getElementById("desc").innerHTML = data.current.condition.text;
-// ! icon will not be used due to file size
+// ALERT icon will not be used due to file size
       // document.getElementById("icon").innerHTML = data.location.name;
       document.getElementById("temp-f").innerHTML = temp + data.current.temp_f + " &#x2109;";
       document.getElementById("feelslike-f").innerHTML = butFeels + data.current.feelslike_f + " &#x2109;";
@@ -56,13 +69,35 @@ function getWthr(){
     })
 }
 
-//* change location and set in storage
+// CALL getWthr
+getWthr()
+
+//SECTION change location and set in storage
 function changeWthr(){
   city=document.getElementById('change-city').value;
   st=document.getElementById('change-st').value;
   localStorage.setItem('city',city);
   localStorage.setItem('st',st);
-  // getWthr();
 }
 
-//* Get new weather and details
+// SECTION Get new weather and details
+// psuedo code
+// for forecast.forecastday.date < TODAYS DATE + 3
+//    populate forecast vars
+//    create template
+/* var data guide
+Daily details vars (repeats 3 x):
+forecastDayCndtnIcon= forecast.forecastday.day.condition.icon
+forecastDayCndtnTxt= forecast.forecastday.day.condition.text
+localCity= location.name
+LocalSt= location.region
+LocalCntry= location.country
+forecastDate= forecast.forecastday.date
+forecastDayMaxTemp= forecast.forecastday.maxtemp_f
+forecastDayMinTemp= forecast.forecastday.mintemp_f
+forecastDayMaxWind= forecast.forecastday.maxwind_mph
+forecastDayHumid= forecast.forecastday.avghumidity
+forecastDayRainChance= forecast.forecastday.daily_chance_of_rain
+forecastDaySnowChance= forecast.forecastday.daily_chance_of_snow
+*/
+// insert template into DOM
