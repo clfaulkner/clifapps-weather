@@ -39,6 +39,7 @@ function store(){
     return city,st
 }
 
+// CALL store()
 store();
 
 // SECTION: fetch weather and details
@@ -85,19 +86,20 @@ function changeWthr(){
 // for forecast.forecastday.date < TODAYS DATE + 3
 //    populate forecast vars
 //    create template
-/* var data guide
-Daily details vars (repeats 3 x):
-forecastDayCndtnIcon= forecast.forecastday.day.condition.icon
-forecastDayCndtnTxt= forecast.forecastday.day.condition.text
-localCity= location.name
-LocalSt= location.region
-LocalCntry= location.country
-forecastDate= forecast.forecastday.date
-forecastDayMaxTemp= forecast.forecastday.maxtemp_f
-forecastDayMinTemp= forecast.forecastday.mintemp_f
-forecastDayMaxWind= forecast.forecastday.maxwind_mph
-forecastDayHumid= forecast.forecastday.avghumidity
-forecastDayRainChance= forecast.forecastday.daily_chance_of_rain
-forecastDaySnowChance= forecast.forecastday.daily_chance_of_snow
-*/
 // insert template into DOM
+
+/* var data guide
+ * Daily details vars (repeats 3 x):
+ * forecastDayCndtnIcon= forecast.forecastday.day.condition.icon
+ * forecastDayCndtnTxt= forecast.forecastday.day.condition.text
+ * localCity= location.name
+ * LocalSt= location.region
+ * LocalCntry= location.country
+ * forecastDate= forecast.forecastday.date
+ * forecastDayMaxTemp= forecast.forecastday.maxtemp_f
+ * forecastDayMinTemp= forecast.forecastday.mintemp_f
+ * forecastDayMaxWind= forecast.forecastday.maxwind_mph
+ * forecastDayHumid= forecast.forecastday.avghumidity
+ * forecastDayRainChance= forecast.forecastday.daily_chance_of_rain
+ * forecastDaySnowChance= forecast.forecastday.daily_chance_of_snow
+*/

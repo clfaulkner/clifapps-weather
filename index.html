@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
-<!-- TODO SECTION -->
-<!-- TODO: add button to open weather detaails modal -->
+<!-- TODO section -->
 
 <html lang="en">
 <head>
@@ -13,6 +12,7 @@
   <title>CLiFApps Current Weather</title>
 </head>
 <body>
+<!-- SECTION main body -->
   <main class="w3-container w3-blue w3-content w3-round-large w3-center">
     <div class="w3-container w3-deep-purple w3-center">
       <h1>CLiFApps Current Weather</h1>
@@ -20,6 +20,7 @@
     <h3 id="local">Location</h3>
     <h3 id="desc">Description</h3>
 <!--! icon will not be used due to file size -->
+<!-- FIXME might be able to CDN icon -->
     <!-- <h3 id="icon">icon</h3> -->
     <hr>
     <ul class="w3-ul w3-pale-blue">
@@ -31,6 +32,8 @@
       <li id="humidity">Humidity</li>
     </ul>
     <br>
+
+<!-- SECTION button layer -->
     <div class="w3-container">
       <!-- <button id="change-btn" class="w3-btn w3-indigo w3-right" onclick="document.getElementById('change-wthr').style.display='block'">Change Location</button>
       <button id="change-btn" class="w3-btn w3-black" onclick="document.getElementById('three-day').style.display='block'">3-day forecast</button> -->
@@ -96,11 +99,11 @@
 
 <script src="index.js" type="text/javascript"></script>
 
-<!--! FIREBASE STUFF  -->
+<!--SECTION FIREBASE STUFF  -->
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="/__/firebase/7.19.0/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
+    <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
 <!--* Your web app's Firebase configuration -->
