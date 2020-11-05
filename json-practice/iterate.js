@@ -34,19 +34,38 @@ var dictionary = {
 "employees":[
     {
       "id":"1", 
-      "name":"Google"
+      "name":"Google",
+      "department":{
+        "state": "MN",
+        "building":"32N"
+      }
     },
     {
       "id":"2", 
-      "name":"eBay"
+      "name":"eBay",
+      "department":{
+        "state": "MON",
+        "building":"15B"
+      }
+
     },
     {
       "id":"3", 
-      "name":"Yahoo"
+      "name":"Yahoo",
+      "department":{
+        "state": "CA",
+        "building":"AOE"
+      }
+
     },
     {
       "id":"4", 
-      "name":"Facebook"
+      "name":"Facebook",
+      "department":{
+        "state": "NY",
+        "building":"196"
+      }
+
     }
 ]
 };
@@ -55,6 +74,7 @@ for ( var i in dictionary.employees) {
   let 
     id = dictionary.employees[i].id,
     name = dictionary.employees[i].name
+    dept = dictionary.employees[i].department.building
 
-  console.log(id + name);
+  console.log(id + name + " " + dept);
 }

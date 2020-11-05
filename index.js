@@ -83,10 +83,15 @@ function changeWthr(){
 
 // SECTION Get new weather and details
 // psuedo code
-// for forecast.forecastday.date < TODAYS DATE + 3
-//    populate forecast vars
+// fetch data
+// then convert to json
+// then manipulate data
+//    for forecast.forecastday.date < TODAYS DATE + 3
+//      populate forecast vars
 //    create template
-// insert template into DOM
+//    insert template into DOM
+
+
 
 /* var data guide
  * Daily details vars (repeats 3 x):
