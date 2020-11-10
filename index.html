@@ -13,69 +13,68 @@
 </head>
 <body>
 <!-- SECTION main body -->
-  <main class="w3-container w3-blue w3-content w3-round-large w3-center">
-    <div class="w3-container w3-deep-purple w3-center">
-      <h1>CLiFApps Current Weather</h1>
-    </div>
-    <h3 id="local">Location</h3>
-    <h3 id="desc">Description</h3>
+<main class="w3-container w3-blue w3-content w3-round-large w3-center">
+  <div class="w3-container w3-deep-purple w3-center">
+    <h1>CLiFApps Current Weather</h1>
+  </div>
+  <h3 id="local">Location</h3>
+  <h3 id="desc">Description</h3>
 <!--! icon will not be used due to file size -->
 <!-- FIXME might be able to CDN icon -->
-    <!-- <h3 id="icon">icon</h3> -->
-    <hr>
-    <ul class="w3-ul w3-pale-blue">
-      <li id="temp-f">Temp F</li>
-      <li id="feelslike-f">Feels like</li>
-      <li id="wind-mph">Wind</li>
-      <li id="gust-mph">Wind gust</li>
-      <li id="wind-dir">Wind Dir</li>
-      <li id="humidity">Humidity</li>
-    </ul>
-    <br>
+  <!-- <h3 id="icon">icon</h3> -->
+  <hr>
+  <ul class="w3-ul w3-pale-blue">
+    <li id="temp-f">Temp F</li>
+    <li id="feelslike-f">Feels like</li>
+    <li id="wind-mph">Wind</li>
+    <li id="gust-mph">Wind gust</li>
+    <li id="wind-dir">Wind Dir</li>
+    <li id="humidity">Humidity</li>
+  </ul>
+  <br>
 
 <!-- SECTION button layer -->
-    <div class="w3-container">
-      <!-- <button id="change-btn" class="w3-btn w3-indigo w3-right" onclick="document.getElementById('change-wthr').style.display='block'">Change Location</button>
-      <button id="change-btn" class="w3-btn w3-black" onclick="document.getElementById('three-day').style.display='block'">3-day forecast</button> -->
-      <button id="change-btn" class="w3-button w3-indigo w3-right" style="width: 25%" onclick="document.getElementById('change-wthr').style.display='block'">Change Location</button>
-      <button id="change-btn" class="w3-button w3-black w3-right" style="width: 25%" onclick="document.getElementById('three-day').style.display='block'">3-day forecast</button>
-    </div>
+  <div class="w3-container">
+    <button id="change-btn" class="w3-button w3-indigo w3-right" style="width: 25%" onclick="document.getElementById('change-wthr').style.display='block'">Change Location</button>
+    <button id="change-btn" class="w3-button w3-black w3-right" style="width: 25%" onclick="document.getElementById('three-day').style.display='block'">3-day forecast</button>
+  </div>
 
-<!--* footer & link back  -->
+<!-- SECTION footer & link back  -->
   <footer class="w3-container w3-deep-purple w3-center" style="margin-top: 5px;">
     <p id="powered" class="w3-tiny">Powered by <a href="https://www.weatherapi.com/" title="Free Weather API">WeatherAPI.com</a></p>
     <p class="w3-small">Created by: CLiFApps</p>
   </footer>
-  </main>
+</main>
 
-  <!--* change location modal -->
-  <!--* setup modal -->
-  <div id="change-wthr" title="Change weather location modal" class="w3-modal">
-  <!--* setup modal content -->
-    <div class="w3-modal-content w3-card-4" style="max-width:500px">
-      <div class="w3-panel w3-deep-purple">
-        <h1>Change Weather Location</h1>
-      </div>
-<!--* input form  -->
-      <form class="w3-container">
-        <div class="w3-section">
+<!-- SECTION modals -->
+<!-- change location modal -->
+<!-- setup modal -->
+<div id="change-wthr" title="Change weather location modal" class="w3-modal">
+  <!-- modal content -->
+  <div class="w3-modal-content w3-card-4" style="max-width:500px">
+    <div class="w3-panel w3-deep-purple">
+      <h1>Change Weather Location</h1>
+    </div>
+    <!-- input form  -->
+    <form class="w3-container">
+      <div class="w3-section">
         <!-- input city -->
-          <input type="text" id="change-city" class="w3-input w3-border w3-margin-bottom" placeholder="Enter city name in lowercase" required>
-          <!-- input state -->
-          <input type="text" id="change-st" class="w3-input w3-border w3-margin-bottom" placeholder="Enter 2-digit state in lowercase" required>
-  <!--btn: input button -->
-          <button class="w3-button w3-block w3-green w3-section w3-padding" onclick="changeWthr()">Change</button>
-        </div>
-      </form>
-<!--* cancel change and close modal -->
-      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-<!--btn: cancel/close modal -->
-        <button class="w3-button w3-red" onclick="document.getElementById('change-wthr').style.display='none'">Cancel</button>
+        <input type="text" id="change-city" class="w3-input w3-border w3-margin-bottom" placeholder="Enter city name in lowercase" required>
+        <!-- input state -->
+        <input type="text" id="change-st" class="w3-input w3-border w3-margin-bottom" placeholder="Enter 2-digit state in lowercase" required>
+        <!-- input button -->
+        <button class="w3-button w3-block w3-green w3-section w3-padding" onclick="changeWthr()">Change</button>
       </div>
+    </form>
+    <!-- cancel change and close modal -->
+    <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+      <!-- cancel/close modal -->
+      <button class="w3-button w3-red" onclick="document.getElementById('change-wthr').style.display='none'">Cancel</button>
     </div>
   </div>
+</div>
 
-<!-- weather details pop up -->
+<!-- weather details modal -->
 <div id="three-day" class="w3-modal">
   <div class="w3-modal-content w3-card-4 w3-round-large" style="max-width:500px; background-image: linear-gradient(black,darkblue,DeepSkyBlue);">
     <span class="w3-button w3-right w3-red" onclick="document.getElementById('three-day').style.display='none'" >&times;</span>
@@ -106,7 +105,7 @@
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
-<!--* Your web app's Firebase configuration -->
+<!-- Your web app's Firebase configuration -->
 <script>
   var firebaseConfig = {
     apiKey: "AIzaSyDV9w-weuIb8AdGsF2Fd43QwnSdUj8KwZ8",
