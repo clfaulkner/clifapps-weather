@@ -1,3 +1,7 @@
+// SECTION todo's
+// TODO delete unnecessary commented lines
+
+
 // * weather vars
 let temp = "Temperature = ",
   butFeels = "Feels like: ",
@@ -20,7 +24,7 @@ let localCity = "",
   forecastDayRainChance="",
   forecastDaySnowChance="",
   forecastDayCndtnTxt="",
-  forecastDayCndtnIcon="",
+  forecastDayCndtnIcon="";
 
 
 
@@ -29,8 +33,8 @@ let localCity = "",
 function store(){
   if(localStorage.getItem('city')===null){
     // todo: test what heppens when st=values & city=null
-      localStorage.setItem('city',city);
-      localStorage.setItem('st',st);
+      localStorage.setItem('city', city);
+      localStorage.setItem('st', st);
     }
     else {
       city=localStorage.getItem('city');
@@ -86,12 +90,32 @@ function changeWthr(){
 // fetch data
 // then convert to json
 // then manipulate data
-//    for forecast.forecastday.date < TODAYS DATE + 3
+//    let dayCount = TODAYS DATE + 3
+//    for forecast.forecastday.date < dayCount
 //      populate forecast vars
 //    create template
 //    insert template into DOM
+function getDetails(){
+  // declare vars
+  // TODO consider using vars already in getWthr()
+  let api = "https://api.weatherapi.com/v1/forecast.json?key="
+  let apiKey = "7d94c74d88d147c89f5150101201806";
+  // let zip = "&q=56560";
+  let url = api +
+    apiKey + "&q=" +
+    // city + " " + st
+    city + " " + st +
+    "&days=3"
+    // zip
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+    })
+  }
 
-
+// CALL getDetails()
+getDetails();
 
 /* var data guide
  * Daily details vars (repeats 3 x):
