@@ -63,7 +63,7 @@ function getWthr(){
       console.log(data);
       document.getElementById("local").innerHTML = data.location.name;
       document.getElementById("desc").innerHTML = data.current.condition.text;
-// ALERT icon will not be used due to file size
+// FIXME consider using CDN for icon
       // document.getElementById("icon").innerHTML = data.location.name;
       document.getElementById("temp-f").innerHTML = temp + data.current.temp_f + " &#x2109;";
       document.getElementById("feelslike-f").innerHTML = butFeels + data.current.feelslike_f + " &#x2109;";
@@ -100,13 +100,10 @@ function getDetails(){
   // TODO consider using vars already in getWthr()
   let api = "https://api.weatherapi.com/v1/forecast.json?key="
   let apiKey = "7d94c74d88d147c89f5150101201806";
-  // let zip = "&q=56560";
   let url = api +
     apiKey + "&q=" +
-    // city + " " + st
     city + " " + st +
     "&days=3"
-    // zip
   fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -117,6 +114,10 @@ function getDetails(){
 // CALL getDetails()
 getDetails();
 
+// SECTION HTML constant
+// const webPage = ``
+
+// FIXME update var value names to match return data
 /* var data guide
  * Daily details vars (repeats 3 x):
  * forecastDayCndtnIcon= forecast.forecastday.day.condition.icon
@@ -124,7 +125,7 @@ getDetails();
  * localCity= location.name
  * LocalSt= location.region
  * LocalCntry= location.country
- * forecastDate= forecast.forecastday.date
+ * forecastDate= forecast.forecastday[x].date
  * forecastDayMaxTemp= forecast.forecastday.maxtemp_f
  * forecastDayMinTemp= forecast.forecastday.mintemp_f
  * forecastDayMaxWind= forecast.forecastday.maxwind_mph
