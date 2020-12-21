@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../udemy-microposts/traversy"
+		}
+	],
+	"remoteAuthority": "wsl+Debian",
+	"settings": {}
+}
