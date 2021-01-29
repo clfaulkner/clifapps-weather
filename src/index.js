@@ -61,12 +61,12 @@ function getWthr(){
       document.getElementById("desc").innerHTML = data.current.condition.text;
       // FIXME consider using CDN for icon
       // document.getElementById("icon").innerHTML = data.location.**use-icon-var-name;
-      document.getElementById("temp-f").innerHTML = temp + data.current.temp_f + " &#x2109;";
-      document.getElementById("feelslike-f").innerHTML = butFeels + data.current.feelslike_f + " &#x2109;";
-      document.getElementById("wind-mph").innerHTML = wind + data.current.wind_mph;
-      document.getElementById("gust-mph").innerHTML = gust + data.current.gust_mph;
+      document.getElementById("temp-f").innerHTML = temp + Math.ceil(data.current.temp_f) + " &#x2109;";
+      document.getElementById("feelslike-f").innerHTML = butFeels + Math.ceil(data.current.feelslike_f) + " &#x2109;";
+      document.getElementById("wind-mph").innerHTML = wind + Math.ceil(data.current.wind_mph);
+      document.getElementById("gust-mph").innerHTML = gust + Math.ceil(data.current.gust_mph);
       document.getElementById("wind-dir").innerHTML = dir + data.current.wind_dir;
-      document.getElementById("humidity").innerHTML = hum + data.current.humidity;
+      document.getElementById("humidity").innerHTML = hum + Math.ceil(data.current.humidity);
     })
 }
 

@@ -1,3 +1,8 @@
 body {
-  font-family: sans-serif;
+  max-width: 968px;
+  margin: auto;
 }
+
+/* #local{
+  color: rgb(243, 12, 70);
+} */
