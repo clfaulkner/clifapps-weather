@@ -4,14 +4,16 @@
 
 
 // * weather vars
-let temp = "Temperature = ",
+// let temp = "Temperature = ",
+let temp = "",
   butFeels = "Feels like: ",
   wind = "Wind speed (MPH): ",
   gust = "Wind gusts: ",
   dir = "Wind Direction: ",
   hum = "Humidity = ",
   city = "moorhead",
-  st = "mn";
+  st = "mn",
+  ico = "";
 
 // detail weather vars
 let loCation = "Location: ", //location will be city,state combined
@@ -57,16 +59,17 @@ function getWthr(){
     .then(response => response.json())
     .then(data => {
       console.log(data);
-      document.getElementById("local").innerHTML = data.location.name;
-      document.getElementById("desc").innerHTML = data.current.condition.text;
+      document.getElementById("local").innerText = data.location.name;
+      document.getElementById("desc").innerText = data.current.condition.text;
       // FIXME consider using CDN for icon
-      // document.getElementById("icon").innerHTML = data.location.**use-icon-var-name;
-      document.getElementById("temp-f").innerHTML = temp + Math.ceil(data.current.temp_f) + " &#x2109;";
-      document.getElementById("feelslike-f").innerHTML = butFeels + Math.ceil(data.current.feelslike_f) + " &#x2109;";
-      document.getElementById("wind-mph").innerHTML = wind + Math.ceil(data.current.wind_mph);
-      document.getElementById("gust-mph").innerHTML = gust + Math.ceil(data.current.gust_mph);
-      document.getElementById("wind-dir").innerHTML = dir + data.current.wind_dir;
-      document.getElementById("humidity").innerHTML = hum + Math.ceil(data.current.humidity);
+      // ?? icon is an image -- how to load into img tag?
+      // document.getElementById("icon").setAttribute("src", toString(data.current.condition.icon));
+      document.getElementById("temp-f").innerText = temp + Math.ceil(data.current.temp_f) + ' &#8457;';
+      document.getElementById("feelslike-f").innerText = butFeels + Math.ceil(data.current.feelslike_f) + " &#x2109;";
+      document.getElementById("wind-mph").innerText = wind + Math.ceil(data.current.wind_mph);
+      document.getElementById("gust-mph").innerText = gust + Math.ceil(data.current.gust_mph);
+      document.getElementById("wind-dir").innerText = dir + data.current.wind_dir;
+      document.getElementById("humidity").innerText = hum + Math.ceil(data.current.humidity);
     })
 }
 

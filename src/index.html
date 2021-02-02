@@ -39,23 +39,31 @@
     <hr>
     
 <!-- ************************************** -->
-  <!-- SECTION main display card -->
+<!-- SECTION main display card -->
     <div class="w3-card-4" style="width:100%">
       <div>
         <h1 class="w3-center" style="background-color: #0a0aee; margin: 0 0 0 0;" >CLiFApps Weather</h1>
       </div>
       <div class="w3-display-container w3-text-white">
         <img src="../images/sky-414199_1280.jpg" alt="" style="width:100%;">
-        <div class="w3-xlarge w3-display-topmiddle w3-padding">
-          <h1 id="local">Location</h1>
-          <h2 id="desc">Description</h2>
+        <!-- <div class="w3-xlarge w3-display-topmiddle w3-padding"> -->
+        <div class="w3-padding">
+          <div class="w3-xlarge w3-display-topmiddle">
+            <h1 id="local" class="">Location</h1>
+            <h2 id="desc" class="">Description</h2>
+            <!-- FIXME still not working :-(  -- has to be parsed to remove beginning forward slashes-->
+            <!-- <img src="" alt="" id="icon"> load from js file -->
+          </div>
+          <!-- <p id="temp-f" class="w3-display-middle" >Temp</p> -->
         </div>
       </div>
+<!-- SECTION second card --  possible location for "display" element -->
       <div class="w3-display-container w3-text-white">
         <img src="../images/texture-1668079_1280.jpg" alt="" style="width:100%;">
         <div class="w3-display-topleft w3-large" >
+          <p id="temp-f" class="w3-display-middle" >Temp</p>
           <ul class="">
-            <li id="temp-f">Temp F</li>
+            <!-- <li id="temp-f">Temp F</li> -->
             <li id="feelslike-f">Feels like</li>
             <li id="wind-mph">Wind</li>
             <li id="gust-mph">Wind gust</li>
@@ -84,6 +92,7 @@
 <!-- ************************************** -->
 <!-- SECTION 3-day forecast -->
 <!-- NOTE consider using "details" element -->
+<!-- NOTE consider using a background-image, or background-color -->
       <details>
         <summary>Thre Day Forecast</summary>
         <div id="three-day" class="">
