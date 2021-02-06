@@ -5,8 +5,8 @@
 
 // * weather vars
 // let temp = "Temperature = ",
-let temp = "",
-  butFeels = "Feels like: ",
+let temp = "Temp (F): ",
+  butFeels = "Feels like (F): ",
   wind = "Wind speed (MPH): ",
   gust = "Wind gusts: ",
   dir = "Wind Direction: ",
@@ -64,8 +64,10 @@ function getWthr(){
       // FIXME consider using CDN for icon
       // ?? icon is an image -- how to load into img tag?
       // document.getElementById("icon").setAttribute("src", toString(data.current.condition.icon));
-      document.getElementById("temp-f").innerText = temp + Math.ceil(data.current.temp_f) + ' &#8457;';
-      document.getElementById("feelslike-f").innerText = butFeels + Math.ceil(data.current.feelslike_f) + " &#x2109;";
+      // document.getElementById("temp-f").innerText = temp + Math.ceil(data.current.temp_f) + ' &#8457;';
+      // document.getElementById("feelslike-f").innerText = butFeels + Math.ceil(data.current.feelslike_f) + " &#x2109;";
+      document.getElementById("temp-f").innerText = temp + Math.ceil(data.current.temp_f);
+      document.getElementById("feelslike-f").innerText = butFeels + Math.ceil(data.current.feelslike_f);
       document.getElementById("wind-mph").innerText = wind + Math.ceil(data.current.wind_mph);
       document.getElementById("gust-mph").innerText = gust + Math.ceil(data.current.gust_mph);
       document.getElementById("wind-dir").innerText = dir + data.current.wind_dir;

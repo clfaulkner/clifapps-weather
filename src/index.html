@@ -1,131 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- ************************************** -->
-<!-- SECTION To-Do's' -->
-<!-- TODO clean up style, class, and id attributes -->
-<!-- TODO remove unused commented-out sections -->
-<!-- TODO find out why text is too large on phones -->
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CLiFApps Mini Weather App</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
 	<link rel="stylesheet" href="styles.css">
+  <title>CLiFApps Weather Tower</title>
 </head>
-<!-- NOTE consider using a background-image, or background-color -->
 <body>
 <!-- ************************************** -->
 <!-- SECTION Main -->
-  <main class="">
-    <div class="">
-      <h1>CLiFApps Weather</h1>
+  <main class="w3-card-4 w3-content w3-round-xlarge" style="max-width: 968px;">
+    <div class="w3-indigo">
+      <h1 class="w3-center">CLiFApps Weather Tower</h1>
     </div>
-    <!-- <h3 id="local">Location</h3>
-    <h3 id="desc">Description</h3> -->
-  <!--! icon will not be used due to file size -->
-  <!-- FIXME might be able to CDN icon -->
-    <!-- <h3 id="icon">icon</h3> -->
-    <hr>
-    <!-- <ul class="">
-      <li id="temp-f">Temp F</li>
-      <li id="feelslike-f">Feels like</li>
-      <li id="wind-mph">Wind</li>
-      <li id="gust-mph">Wind gust</li>
-      <li id="wind-dir">Wind Dir</li>
-      <li id="humidity">Humidity</li>
-    </ul> -->
-    <br>
-    <hr>
-    
-<!-- ************************************** -->
-<!-- SECTION main display card -->
-    <div class="w3-card-4" style="width:100%">
-      <div>
-        <h1 class="w3-center" style="background-color: #0a0aee; margin: 0 0 0 0;" >CLiFApps Weather</h1>
+    <div>
+      <div class="background">
+        <h1 id="local" class="w3-center">Location</h1>
+        <h2 id="desc" class="w3-center">Description</h2>
+        <ul class="">
+          <li id="temp-f">Temp F</li>
+          <li id="feelslike-f">Feels like</li>
+          <li id="wind-mph">Wind</li>
+          <li id="gust-mph">Wind gust</li>
+          <li id="wind-dir">Wind Dir</li>
+          <li id="humidity">Humidity</li>
+        </ul>
       </div>
-      <div class="w3-display-container w3-text-white">
-        <img src="../images/sky-414199_1280.jpg" alt="" style="width:100%;">
-        <!-- <div class="w3-xlarge w3-display-topmiddle w3-padding"> -->
-        <div class="w3-padding">
-          <div class="w3-xlarge w3-display-topmiddle">
-            <h1 id="local" class="">Location</h1>
-            <h2 id="desc" class="">Description</h2>
-            <!-- FIXME still not working :-(  -- has to be parsed to remove beginning forward slashes-->
-            <!-- <img src="" alt="" id="icon"> load from js file -->
-          </div>
-          <!-- <p id="temp-f" class="w3-display-middle" >Temp</p> -->
-        </div>
-      </div>
-<!-- SECTION second card --  possible location for "display" element -->
-      <div class="w3-display-container w3-text-white">
-        <img src="../images/texture-1668079_1280.jpg" alt="" style="width:100%;">
-        <div class="w3-display-topleft w3-large" >
-          <p id="temp-f" class="w3-display-middle" >Temp</p>
-          <ul class="">
-            <!-- <li id="temp-f">Temp F</li> -->
-            <li id="feelslike-f">Feels like</li>
-            <li id="wind-mph">Wind</li>
-            <li id="gust-mph">Wind gust</li>
-            <li id="wind-dir">Wind Dir</li>
-            <li id="humidity">Humidity</li>
-          </ul>
-      
-        </div>
-  
-      </div>
-      <!-- <div class="w3-row">
-        <div class="w3-third w3-center">
-          <h3>MON</h3>
-          <img src="img_weather_sun.jpg" alt="sun" style="width:80px">
-        </div>
-        <div class="w3-third w3-center">
-          <h3>TUE</h3>
-          <img src="img_weather_cloud.jpg" alt="cloud" style="width:80px">
-        </div>
-        <div class="w3-third w3-center w3-margin-bottom">
-          <h3>WED</h3>
-          <img src="img_weather_clouds.jpg" alt="clouds" style="width:80px">
-        </div>
-      </div> -->
-   
+    </div>
+
 <!-- ************************************** -->
 <!-- SECTION 3-day forecast -->
-<!-- NOTE consider using "details" element -->
-<!-- NOTE consider using a background-image, or background-color -->
-      <details>
-        <summary>Thre Day Forecast</summary>
-        <div id="three-day" class="">
-          <!-- <div id="closeCards" class="w3-top w3-bar">
-            <div id="closeBtn" class="w3-bar-item w3-text-white w3-button" onclick="document.getElementById('three-day').style.display='none'">Close</div>
-          </div> -->
-          <!-- ?? this section goes into JS file  -->
-          <div class="w3-card-4 w3-round-large" style="width: 100%;; background-image: linear-gradient(black,darkblue,DeepSkyBlue);">
-            <!-- <span class="w3-button w3-right w3-red" onclick="document.getElementById('three-day').style.display='none'" >&times;</span> -->
-            <p class="w3-center details">City, State</p>
-            <div class="w3-cell-row">
-              <div class="w3-container w3-cell w3-cell-middle">
-                <p class="details">Icon, description (left)</p>
-              </div>
-              <div class="w3-container w3-cell">
-                <ul>
-                  <li class="details" style="list-style-type: none;">wind</li>
-                  <li class="details" style="list-style-type: none;">precip</li>
-                  <li class="details" style="list-style-type: none;">pressure</li>
-                  <li class="details" style="list-style-type: none;">temp</li>
-                </ul>
-              </div>
-            </div>
-            <p class="details">Day, Icon, Temp</p>
+    <details>
+      <summary>Thre Day Forecast</summary>
+      <div id="three-day" class="background">
+        <p class="w3-center">City, State</p>
+        <div class="w3-cell-row">
+          <div class="w3-container w3-cell w3-cell-middle">
+            <p class="details">Icon, description (left)</p>
           </div>
-        </details>
-        
+          <div class="w3-container w3-cell">
+            <ul>
+              <li class="details" style="list-style-type: none;">wind</li>
+              <li class="details" style="list-style-type: none;">precip</li>
+              <li class="details" style="list-style-type: none;">pressure</li>
+              <li class="details" style="list-style-type: none;">temp</li>
+            </ul>
+          </div>
+        </div>
       </div>
-
-    </div>
+    </details>
   </main>
 
-<script src="index.js"></script>
+
+  <script src="index.js"></script>
 </body>
 </html>

@@ -1,12 +1,13 @@
-body {
-  max-width: 968px;
-  margin: auto;
-}
-
-/* #local{
-  color: rgb(243, 12, 70);
-} */
-
-.details{
+* {
   color: antiquewhite;
+}
+body {
+  background-image: url("../images/sky-414199_1280.jpg");
+  background-size: cover;
+}
+/* .details{
+  color: antiquewhite;
+} */
+.background{
+  background-image: linear-gradient(black,darkblue,DeepSkyBlue);
 }
