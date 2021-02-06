@@ -15,27 +15,44 @@
     <div class="w3-indigo">
       <h1 class="w3-center">CLiFApps Weather Tower</h1>
     </div>
-    <div>
-      <div class="background">
-        <h1 id="local" class="w3-center">Location</h1>
-        <h2 id="desc" class="w3-center">Description</h2>
-        <ul class="">
+    <!-- <div> -->
+      <div class="background"> <!-- NOTE gradient starts here -->
+        <div class="w3-center">
+          <h1 id="local" class="">Location</h1>
+          <h2 id="desc" class="">Description</h2>
+          <!-- ALERT load from js file -->
+          <img src="" alt="weather icon" id="icon" class="">  
+        </div>
+        <!-- <ul class="w3-container w3-cell w3-cell-middle">
           <li id="temp-f">Temp F</li>
           <li id="feelslike-f">Feels like</li>
           <li id="wind-mph">Wind</li>
           <li id="gust-mph">Wind gust</li>
           <li id="wind-dir">Wind Dir</li>
           <li id="humidity">Humidity</li>
-        </ul>
+        </ul> -->
+      <div class="w3-row">
+        <div class="w3-col w3-container m6" style="padding-left: 6rem;">
+          <p id="temp-f">Temp F</p>
+          <p id="feelslike-f">Feels like</p>
+        </div>
+        <div class="w3-col w3-container m6" style="padding-left: 4rem;">
+          <p id="wind-mph">Wind</p>
+          <p id="gust-mph">Wind gust</p>
+          <p id="wind-dir">Wind Dir</p>
+          <p id="humidity">Humidity</p>
+
+        </div>
       </div>
-    </div>
+      </div>
+    <!-- </div> -->
 
 <!-- ************************************** -->
 <!-- SECTION 3-day forecast -->
     <details>
       <summary>Thre Day Forecast</summary>
       <div id="three-day" class="background">
-        <p class="w3-center">City, State</p>
+        <p class="w3-center">Weekday, Date</p>
         <div class="w3-cell-row">
           <div class="w3-container w3-cell w3-cell-middle">
             <p class="details">Icon, description (left)</p>

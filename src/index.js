@@ -13,7 +13,7 @@ let temp = "Temp (F): ",
   hum = "Humidity = ",
   city = "moorhead",
   st = "mn",
-  ico = "";
+  ico = "https:";
 
 // detail weather vars
 let loCation = "Location: ", //location will be city,state combined
@@ -63,7 +63,7 @@ function getWthr(){
       document.getElementById("desc").innerText = data.current.condition.text;
       // FIXME consider using CDN for icon
       // ?? icon is an image -- how to load into img tag?
-      // document.getElementById("icon").setAttribute("src", toString(data.current.condition.icon));
+      document.getElementById("icon").setAttribute("src", ico+data.current.condition.icon);
       // document.getElementById("temp-f").innerText = temp + Math.ceil(data.current.temp_f) + ' &#8457;';
       // document.getElementById("feelslike-f").innerText = butFeels + Math.ceil(data.current.feelslike_f) + " &#x2109;";
       document.getElementById("temp-f").innerText = temp + Math.ceil(data.current.temp_f);
