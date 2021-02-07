@@ -44,6 +44,7 @@ function store(){
 // CALL store()
 store();
 
+// ***************************************
 // SECTION: fetch current weather
 function getWthr(){
   // declare vars
@@ -78,6 +79,7 @@ function getWthr(){
 // CALL getWthr
 getWthr()
 
+// ***************************************
 //SECTION change location and set in storage
 function changeWthr(){
   city=document.getElementById('change-city').value;
@@ -86,6 +88,7 @@ function changeWthr(){
   localStorage.setItem('st',st);
 }
 
+// ***************************************
 // SECTION HTML constant
 const webPage = `
   <div class="w3-modal-content w3-card-4 w3-round-large" style="max-width:500px; background-image: linear-gradient(black,darkblue,DeepSkyBlue);">
