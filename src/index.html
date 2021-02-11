@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- ************************************** -->
+<!-- SECTION To-Do's' -->
+<!-- TODO remove unused commented-out sections -->
+<!-- TODO change some div's to section tags -->
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
 	<link rel="stylesheet" href="styles.css">
   <title>CLiFApps Weather Tower</title>
@@ -13,44 +19,39 @@
 <!-- SECTION Main -->
   <main class="w3-card-4 w3-content w3-round-xlarge" style="max-width: 968px;">
     <div class="w3-indigo">
-      <h1 class="w3-center">CLiFApps Weather Tower</h1>
+      <h1 class="w3-center" style="margin-bottom: 0;">CLiFApps Weather Tower</h1>
     </div>
       <div class="background"> <!-- NOTE gradient starts here -->
         <div class="w3-center">
-          <h1 id="local" class="">Location</h1>
-          <h2 id="desc" class="">Description</h2>
+          <h1 id="local" class="" style="margin: 0 0 0 0;">Location</h1>
+          <h2 id="desc" class="" style="margin: 0 0 0 0;">Description</h2>
           <!-- ALERT load from js file -->
           <img src="" alt="weather icon" id="icon" class="">  
         </div>
-        <!-- <ul class="w3-container w3-cell w3-cell-middle">
-          <li id="temp-f">Temp F</li>
-          <li id="feelslike-f">Feels like</li>
-          <li id="wind-mph">Wind</li>
-          <li id="gust-mph">Wind gust</li>
-          <li id="wind-dir">Wind Dir</li>
-          <li id="humidity">Humidity</li>
-        </ul> -->
-      <div class="w3-row">
-        <div class="w3-col w3-container m6" style="padding-left: 6rem;">
-          <p id="temp-f">Temp F</p>
-          <p id="feelslike-f">Feels like</p>
+        <div class="w3-row">
+          <div class="w3-col w3-container m6" style="padding-left: 6rem;">
+            <p id="temp-f">Temp F</p>
+            <p id="feelslike-f">Feels like</p>
+          </div>
+          <div class="w3-col w3-container m6" style="padding-left: 4rem;">
+            <p id="wind-mph">Wind</p>
+            <p id="gust-mph">Wind gust</p>
+            <p id="wind-dir">Wind Dir</p>
+            <p id="humidity">Humidity</p>
+          </div>
         </div>
-        <div class="w3-col w3-container m6" style="padding-left: 4rem;">
-          <p id="wind-mph">Wind</p>
-          <p id="gust-mph">Wind gust</p>
-          <p id="wind-dir">Wind Dir</p>
-          <p id="humidity">Humidity</p>
-
-        </div>
+        <!--BTN change location button  -->
+        <br>
+        <div class="w3-container">
+          <button id="change-btn" class="w3-btn w3-indigo w3-right" onclick="document.getElementById('change-wthr').style.display='block'">Change Location</button>
+        </div>  
       </div>
-      </div>
-
 <!-- ************************************** -->
 <!-- SECTION 3-day forecast -->
     <details>
-      <summary>Thre Day Forecast</summary>
+      <summary>Thre Day Forecast</summary>  <!-- load from js file -->
       <div id="three-day" class="background">
-        <p class="w3-center">Weekday, Date</p>
+        <!-- <p class="w3-center">Weekday, Date</p>
         <div class="w3-cell-row">
           <div class="w3-container w3-cell w3-cell-middle">
             <p class="details">Icon, description (left)</p>
@@ -63,11 +64,44 @@
               <li class="details" style="list-style-type: none;">temp</li>
             </ul>
           </div>
-        </div>
+        </div> -->
       </div>
     </details>
-  </main>
+<!-- ************************************** -->
+<!--SECTION footer & link back  -->
+  <footer class="w3-container w3-deep-purple w3-center" style="margin-top: 5px;">
+    <p id="powered" class="w3-tiny">Powered by <a href="https://www.weatherapi.com/" title="Free Weather API">WeatherAPI.com</a></p>
+    <p class="w3-small">Created by: CLifApps</p> 
+  </footer>    
+</main>
 
+<!-- ************************************** -->
+<!-- SECTION change location modal -->
+  <!-- setup modal -->
+  <div id="change-wthr" title="Change weather location modal" class="w3-modal">
+    <!--* setup modal content -->
+      <div class="w3-modal-content w3-card-4" style="max-width:500px">
+        <div class="w3-panel w3-deep-purple">
+          <h1>Change Weather Location</h1>
+        </div>
+        <!-- input form  -->
+        <form class="w3-container">
+          <div class="w3-section">
+          <!-- input city -->
+            <input type="text" id="change-city" class="w3-input w3-border w3-margin-bottom" placeholder="Enter city name in lowercase" required>
+            <!-- input state -->
+            <input type="text" id="change-st" class="w3-input w3-border w3-margin-bottom" placeholder="Enter 2-digit state in lowercase" required>
+    <!--btn: input button -->
+            <button class="w3-button w3-block w3-green w3-section w3-padding" onclick="changeWthr()">Change</button>
+          </div>
+        </form>
+  <!--* cancel change and close modal -->
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+  <!--btn: cancel/close modal -->
+          <button class="w3-button w3-red" onclick="document.getElementById('change-wthr').style.display='none'">Cancel</button>
+        </div>
+      </div>
+    </div>
 
   <script src="index.js"></script>
 </body>

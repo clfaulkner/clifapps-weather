@@ -16,17 +16,18 @@ let temp = "Temp (F): ",
   ico = "https:";
 
 // detail weather vars
-let loCation = "Location: ", //location will be city,state combined
-  LocalCntry="Country: ",
+let forecastDay = "",
+  // loCation = "Location: ", //location will be city,state combined
+  // LocalCntry="Country: ",
   forecastDate="Date: ",
-  forecastDayMaxTemp="Max Temp: ",
-  forecastDayMinTemp="Min Temp: ",
-  forecastDayMaxWind="Wind: ",
+  forecastDayMaxTemp="Max Temp(F): ",
+  forecastDayMinTemp="Min Temp(F): ",
+  forecastDayMaxWind="Wind(MPH): ",
   forecastDayHumid="Humidity: ",
   forecastDayRainChance="Rain Chance: ",
   forecastDaySnowChance="Snow Chance: ",
   forecastDayCndtnTxt="",
-  forecastDayCndtnIcon="";
+  forecastDayCndtnIcon="https:";
 
 // SECTION: Set initial city, st or get current from store
 function store(){
@@ -48,14 +49,8 @@ store();
 // SECTION: fetch current weather
 function getWthr(){
   // declare vars
-  let api = "https://api.weatherapi.com/v1/current.json?key="
-  let apiKey = "7d94c74d88d147c89f5150101201806";
-  // let zip = "&q=56560";
-  let url = api +
-    apiKey + "&q=" +
-    // city + " " + st
-    city + " " + st
-    // zip
+  let api = "https://api.weatherapi.com/v1/current.json?key=7d94c74d88d147c89f5150101201806"
+  let url = api + "&q=" + city + " " + st
   fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -90,26 +85,24 @@ function changeWthr(){
 
 // ***************************************
 // SECTION HTML constant
-const webPage = `
-  <div class="w3-modal-content w3-card-4 w3-round-large" style="max-width:500px; background-image: linear-gradient(black,darkblue,DeepSkyBlue);">
-      <span class="w3-button w3-right w3-red" onclick="document.getElementById('three-day').style.display='none'" >&times;</span>
-      <p class="w3-center details">City, State</p>
-      <div class="w3-cell-row">
-        <div class="w3-container w3-cell w3-cell-middle">
-          <p class="details">Icon, description (left)</p>
-        </div>
-        <div class="w3-container w3-cell">
-          <ul>
-            <li class="details" style="list-style-type: none;">wind</li>
-            <li class="details" style="list-style-type: none;">precip</li>
-            <li class="details" style="list-style-type: none;">pressure</li>
-            <li class="details" style="list-style-type: none;">temp</li>
-          </ul>
-        </div>
-      </div>
-      <p class="details">Day, Icon, Temp</p>
-    </div>
-  `
+// const webPage = `
+// <p class="w3-center details">Weekday</p>
+// <div class="w3-cell-row">
+//   <div class="w3-container w3-cell w3-cell-middle">
+//     <p class="details">Icon, description (left)</p>
+//   </div>
+//   <div class="w3-container w3-cell">
+//     <ul>
+//       <li class="details" style="list-style-type: none;">wind</li>
+//       <li class="details" style="list-style-type: none;">precip</li>
+//       <li class="details" style="list-style-type: none;">pressure</li>
+//       <li class="details" style="list-style-type: none;">temp</li>
+//     </ul>
+//   </div>
+// </div>
+// <p class="details">Day, Icon, Temp</p>
+// `
+
 
 // FIXME update var value names to match return data
 /* var forecast data guide
@@ -122,7 +115,7 @@ const webPage = `
  * forecastDate= forecast.forecastday[x].date
  * forecastDayMaxTemp= forecast.forecastday.maxtemp_f
  * forecastDayMinTemp= forecast.forecastday.mintemp_f
- * forecastDayMaxWind= forecast.forecastday.maxwind_mph
+ * forecastDayMaxWind= forecast.forecastday[index].maxwind_mph
  * forecastDayHumid= forecast.forecastday.avghumidity
  * forecastDayRainChance= forecast.forecastday.daily_chance_of_rain
  * forecastDaySnowChance= forecast.forecastday.daily_chance_of_snow
@@ -140,16 +133,51 @@ const webPage = `
 //    insert template into DOM
 function getDetails(){
   // declare vars
-  // TODO consider using vars already in getWthr()
-  let api = "https://api.weatherapi.com/v1/forecast.json?key="
-  let apiKey = "7d94c74d88d147c89f5150101201806";
-  let url = api + apiKey + "&q=" + city + " " + st + "&days=3"
+  let api = "https://api.weatherapi.com/v1/forecast.json?key=7d94c74d88d147c89f5150101201806"
+  let url = api + "&q=" + city + " " + st + "&days=3"
   fetch(url)
     .then(response => response.json())
     .then(data => {
       console.log(data);
-      for (let i=0; i<3; i++){
-        console.log(data.forecast.forecastday[i].date + ' ' + data.forecast.forecastday[i].day.maxtemp_f);
+      for (let index=0; index<3; index++){
+        let day = new Date(data.forecast.forecastday[index].date);
+        let day2 = day.toUTCString()
+        let day3 = day2.substr(0,3);
+        let weekDay = day3.toUpperCase();
+        console.log(weekDay);
+// SECTION div for details
+        let div1= document.createElement("section");
+          div1.className= "w3-row";
+          div1.id= "deets";
+        document.getElementById("three-day").appendChild(div1);
+        let div2= document.createElement("div");
+          div2.className= "w3-col w3-container m6";
+          div2.id= "details";
+          div2.style= "padding-left: 6rem;";
+        document.getElementById("deets").appendChild(div2);
+        let wd = document.createElement("p");
+          wd.className="w3-center";
+          wd.innerText= weekDay;
+        document.getElementById("details").appendChild(wd);
+        // document.getElementById("three-day").appendChild(wd);
+        let detDesc= document.createElement("p");
+          detDesc.innerText= forecastDayCndtnTxt+
+          data.forecast.forecastday[index].day.condition.text;
+          document.getElementById("details").appendChild(detDesc);
+        // let detIco= document.createElement("span");
+        let detIcoImg= document.createElement("img");
+          detIcoImg.src= ico+data.forecast.forecastday[index].day.condition.icon;
+          document.getElementById("details").appendChild(detIcoImg);
+          // <div class="w3-container w3-cell">
+// SECTION div for 2nd column
+        let div3= document.createElement("div");
+          div3.className= "w3-col w3-container m6";
+          div3.id= "side-2"
+          div3.style= "padding-left: 4rem;";
+        document.getElementById("deets").appendChild(div3);
+        let wind= document.createElement("p");
+          wind.innerText= forecastDayMaxWind+Math.ceil(data.forecast.forecastday[index].day.maxwind_mph);
+        document.getElementById("side-2").appendChild(wind);
       }
     })
   }
