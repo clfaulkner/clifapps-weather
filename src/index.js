@@ -1,10 +1,8 @@
 // SECTION todo's
 // TODO delete unnecessary commented lines
-// TODO dev loop to display 3-day data (consider for...of structure)
 
 
 // * weather vars
-// let temp = "Temperature = ",
 let temp = "Temp (F): ",
   butFeels = "Feels like (F): ",
   wind = "Wind speed (MPH): ",
@@ -16,7 +14,7 @@ let temp = "Temp (F): ",
   ico = "https:";
 
 // detail weather vars
-let loCation = "Location: ", //location will be city,state combined
+let loCation = "Location: ", //location will be city,state combined -- unused for now
   LocalCntry="Country: ",
   forecastDate="Date: ",
   forecastDayMaxTemp="Max Temp(F): ",
@@ -82,30 +80,7 @@ function changeWthr(){
   localStorage.setItem('st',st);
 }
 
-// ***************************************
-// SECTION HTML constant
-const webPage = `
-  <div class="w3-modal-content w3-card-4 w3-round-large" style="max-width:500px; background-image: linear-gradient(black,darkblue,DeepSkyBlue);">
-      <span class="w3-button w3-right w3-red" onclick="document.getElementById('three-day').style.display='none'" >&times;</span>
-      <p class="w3-center details">City, State</p>
-      <div class="w3-cell-row">
-        <div class="w3-container w3-cell w3-cell-middle">
-          <p class="details">Icon, description (left)</p>
-        </div>
-        <div class="w3-container w3-cell">
-          <ul>
-            <li class="details" style="list-style-type: none;">wind</li>
-            <li class="details" style="list-style-type: none;">precip</li>
-            <li class="details" style="list-style-type: none;">pressure</li>
-            <li class="details" style="list-style-type: none;">temp</li>
-          </ul>
-        </div>
-      </div>
-      <p class="details">Day, Icon, Temp</p>
-    </div>
-  `
-
-// FIXME update var value names to match return data
+// *************************************
 /* var forecast data guide
  * Daily details vars (repeats 3 x):
  *  forecastDayCndtnIcon= data.forecast.forecastday[i].day.condition.icon
@@ -122,16 +97,8 @@ const webPage = `
  *  forecastDaySnowChance= data.forecast.forecastday[i].day.daily_chance_of_snow
 */
 
+// ***************************************
 // SECTION Get 3-day weather and details
-// psuedo code
-// fetch data
-// then convert to json
-// then manipulate data
-//    let dayCount = TODAYS DATE + 3
-//    for forecast.forecastday.date < dayCount
-//      populate forecast vars
-//    create template
-//    insert template into DOM
 function getDetails(){
   // declare vars
   // TODO consider using vars already in getWthr()
@@ -148,14 +115,6 @@ function getDetails(){
         div1.className= "w3-center";
         div1.id= "deets";
         document.getElementById("three-day").appendChild(div1);
-      // let div2= document.createElement("div");
-      //   div2.className= "w3-center w3-cell";
-      //   div2.id= "cell-1";
-      //   document.getElementById("deets").appendChild(div2);
-      // let div3= document.createElement("div");
-      //   div3.className= "w3-center w3-cell";
-      //   div3.id= "cell-2"
-      //   document.getElementById("deets").appendChild(div3);
       // ALERT for... statement to populate 3-day forecast
       for (let i=0; i<3; i++){
         // get and format weekday
@@ -163,9 +122,8 @@ function getDetails(){
         let day2 = day.toUTCString()
         let day3 = day2.substr(0,3);
         let weekDay = day3.toUpperCase();
-        weekDay += " "+ data.forecast.forecastday[i].date
+        weekDay += "  "+ data.forecast.forecastday[i].date
         // Forecast details **********************
-        // Cell 1
         let days= document.createElement("p");
           days.innerText= weekDay;
           document.getElementById("deets").appendChild(days);
