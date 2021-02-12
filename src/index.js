@@ -1,7 +1,6 @@
 // SECTION todo's
 // TODO delete unnecessary commented lines
 
-
 // * weather vars
 let temp = "Temp (F): ",
   butFeels = "Feels like (F): ",

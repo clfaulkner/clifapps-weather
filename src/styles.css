@@ -1,9 +1,11 @@
-* {
-  color: antiquewhite;
-}
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300;400;700&display=swap');
+/* font-family: 'Big Shoulders Display', cursive; */
+/* ^^ how to use above font ^^ */
+
 body {
   background-image: url("../images/sky-414199_1280.jpg");
   background-size: cover;
+  color: antiquewhite;
 }
 /* .details{
   color: antiquewhite;
@@ -11,3 +13,11 @@ body {
 .background{
   background-image: linear-gradient(black,darkblue,DeepSkyBlue);
 }
+/* 
+.bigger{
+
+}
+.smaller{
+
+}
+*/
