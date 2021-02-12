@@ -114,18 +114,18 @@ const webPage = `
 // FIXME update var value names to match return data
 /* var forecast data guide
  * Daily details vars (repeats 3 x):
- * forecastDayCndtnIcon= forecast.forecastday.day.condition.icon
- * forecastDayCndtnTxt= forecast.forecastday.day.condition.text
+ * forecastDayCndtnIcon= forecast.forecastday[i].day.condition.icon
+ * forecastDayCndtnTxt= forecast.forecastday[i].day.condition.text
  * localCity= location.name
  * LocalSt= location.region
  * LocalCntry= location.country
- * forecastDate= forecast.forecastday[x].date
- * forecastDayMaxTemp= forecast.forecastday.maxtemp_f
- * forecastDayMinTemp= forecast.forecastday.mintemp_f
- * forecastDayMaxWind= forecast.forecastday.maxwind_mph
- * forecastDayHumid= forecast.forecastday.avghumidity
- * forecastDayRainChance= forecast.forecastday.daily_chance_of_rain
- * forecastDaySnowChance= forecast.forecastday.daily_chance_of_snow
+ * forecastDate= forecast.forecastday[i].date
+ * forecastDayMaxTemp= forecast.forecastday[i].maxtemp_f
+ * forecastDayMinTemp= forecast.forecastday[i].mintemp_f
+ * forecastDayMaxWind= forecast.forecastday[i].maxwind_mph
+ * forecastDayHumid= forecast.forecastday[i].avghumidity
+ * forecastDayRainChance= forecast.forecastday[i].daily_chance_of_rain
+ * forecastDaySnowChance= forecast.forecastday[i].daily_chance_of_snow
 */
 
 // SECTION Get 3-day weather and details
@@ -150,6 +150,12 @@ function getDetails(){
       console.log(data);
       for (let i=0; i<3; i++){
         console.log(data.forecast.forecastday[i].date + ' ' + data.forecast.forecastday[i].day.maxtemp_f);
+        // SECTION div for details
+        let div1= document.createElement("div");
+          div1.className= "w3-center";
+          div1.id= "deets";
+        document.getElementById("three-day").appendChild(div1);
+
       }
     })
   }
