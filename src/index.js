@@ -19,14 +19,12 @@ let temp = "Temp (F): ",
 let loCation = "Location: ", //location will be city,state combined
   LocalCntry="Country: ",
   forecastDate="Date: ",
-  forecastDayMaxTemp="Max Temp: ",
-  forecastDayMinTemp="Min Temp: ",
-  forecastDayMaxWind="Wind: ",
+  forecastDayMaxTemp="Max Temp(F): ",
+  forecastDayMinTemp="Min Temp(F): ",
+  forecastDayMaxWind="Wind(MPH): ",
   forecastDayHumid="Humidity: ",
   forecastDayRainChance="Rain Chance: ",
-  forecastDaySnowChance="Snow Chance: ",
-  forecastDayCndtnTxt="",
-  forecastDayCndtnIcon="";
+  forecastDaySnowChance="Snow Chance: ";
 
 // SECTION: Set initial city, st or get current from store
 function store(){
@@ -62,11 +60,7 @@ function getWthr(){
       console.log(data);
       document.getElementById("local").innerText = data.location.name;
       document.getElementById("desc").innerText = data.current.condition.text;
-      // FIXME consider using CDN for icon
-      // ?? icon is an image -- how to load into img tag?
       document.getElementById("icon").setAttribute("src", ico+data.current.condition.icon);
-      // document.getElementById("temp-f").innerText = temp + Math.ceil(data.current.temp_f) + ' &#8457;';
-      // document.getElementById("feelslike-f").innerText = butFeels + Math.ceil(data.current.feelslike_f) + " &#x2109;";
       document.getElementById("temp-f").innerText = temp + Math.ceil(data.current.temp_f);
       document.getElementById("feelslike-f").innerText = butFeels + Math.ceil(data.current.feelslike_f);
       document.getElementById("wind-mph").innerText = wind + Math.ceil(data.current.wind_mph);
@@ -114,18 +108,18 @@ const webPage = `
 // FIXME update var value names to match return data
 /* var forecast data guide
  * Daily details vars (repeats 3 x):
- * forecastDayCndtnIcon= forecast.forecastday[i].day.condition.icon
- * forecastDayCndtnTxt= forecast.forecastday[i].day.condition.text
- * localCity= location.name
- * LocalSt= location.region
- * LocalCntry= location.country
- * forecastDate= forecast.forecastday[i].date
- * forecastDayMaxTemp= forecast.forecastday[i].maxtemp_f
- * forecastDayMinTemp= forecast.forecastday[i].mintemp_f
- * forecastDayMaxWind= forecast.forecastday[i].maxwind_mph
- * forecastDayHumid= forecast.forecastday[i].avghumidity
- * forecastDayRainChance= forecast.forecastday[i].daily_chance_of_rain
- * forecastDaySnowChance= forecast.forecastday[i].daily_chance_of_snow
+ *  forecastDayCndtnIcon= data.forecast.forecastday[i].day.condition.icon
+ *  forecastDayCndtnTxt= data.forecast.forecastday[i].day.condition.text
+ *  localCity= data.location.name
+ *  LocalSt= data.location.region
+ *  LocalCntry= data.location.country
+ *  forecastDate= data.forecast.forecastday[i].date
+ *  forecastDayMaxTemp= data.forecast.forecastday[i].day.maxtemp_f
+ *  forecastDayMinTemp= data.forecast.forecastday[i].day.mintemp_f
+ *  forecastDayMaxWind= data.forecast.forecastday[i].day.maxwind_mph
+ *  forecastDayHumid= data.forecast.forecastday[i].day.avghumidity
+ *  forecastDayRainChance= data.forecast.forecastday[i].day.daily_chance_of_rain
+ *  forecastDaySnowChance= data.forecast.forecastday[i].day.daily_chance_of_snow
 */
 
 // SECTION Get 3-day weather and details
@@ -144,31 +138,60 @@ function getDetails(){
   let api = "https://api.weatherapi.com/v1/forecast.json?key="
   let apiKey = "7d94c74d88d147c89f5150101201806";
   let url = api + apiKey + "&q=" + city + " " + st + "&days=3"
+// SECTION get 3-day forecast
   fetch(url)
     .then(response => response.json())
     .then(data => {
       console.log(data);
-      for (let i=0; i<3; i++){
-        function getWeekDay(){
-          let day = new Date(data.forecast.forecastday[index].date);
-          let day2 = day.toUTCString()
-          let day3 = day2.substr(0,3);
-          let weekDay = day3.toUpperCase();
-          return weekDay;
-        }
-        // CALL getWeekDay
-        getWeekDay();
-        console.log(data.forecast.forecastday[i].date + ' ' + data.forecast.forecastday[i].day.maxtemp_f);
-        // SECTION div for details
-        let div1= document.createElement("div");
-          div1.className= "w3-center";
-          div1.id= "deets";
+      // divs to create row and cells for details
+      let div1= document.createElement("div");
+        div1.className= "w3-center";
+        div1.id= "deets";
         document.getElementById("three-day").appendChild(div1);
-        let day= document.createElement("p");
-          div1.className= "w3-center";
-        document.getElementById("deets").appendChild(day);
-
-
+      // let div2= document.createElement("div");
+      //   div2.className= "w3-center w3-cell";
+      //   div2.id= "cell-1";
+      //   document.getElementById("deets").appendChild(div2);
+      // let div3= document.createElement("div");
+      //   div3.className= "w3-center w3-cell";
+      //   div3.id= "cell-2"
+      //   document.getElementById("deets").appendChild(div3);
+      // ALERT for... statement to populate 3-day forecast
+      for (let i=0; i<3; i++){
+        // get and format weekday
+        let day = new Date(data.forecast.forecastday[i].date);
+        let day2 = day.toUTCString()
+        let day3 = day2.substr(0,3);
+        let weekDay = day3.toUpperCase();
+        weekDay += " "+ data.forecast.forecastday[i].date
+        // Forecast details **********************
+        // Cell 1
+        let days= document.createElement("p");
+          days.innerText= weekDay;
+          document.getElementById("deets").appendChild(days);
+        let wIcon= document.createElement("img");
+          wIcon.src= ico+data.forecast.forecastday[i].day.condition.icon;
+          document.getElementById("deets").appendChild(wIcon);
+        let cdnt= document.createElement("p");
+          cdnt.innerText= data.forecast.forecastday[i].day.condition.text;
+          document.getElementById("deets").appendChild(cdnt);
+        let maxt= document.createElement("p");
+          maxt.innerText= forecastDayMaxTemp+ Math.ceil(data.forecast.forecastday[i].day.maxtemp_f);
+          document.getElementById("deets").appendChild(maxt);
+        let minT= document.createElement("p");
+          minT.innerText= forecastDayMinTemp+ Math.ceil(data.forecast.forecastday[i].day.mintemp_f);
+          document.getElementById("deets").appendChild(minT);
+        let wind= document.createElement("p");
+          wind.innerText= forecastDayMaxWind+ Math.ceil(data.forecast.forecastday[i].day.maxwind_mph);
+          document.getElementById("deets").appendChild(wind);
+        let rain= document.createElement("p");
+          rain.innerText= forecastDayRainChance+ data.forecast.forecastday[i].day.daily_chance_of_rain;
+          document.getElementById("deets").appendChild(rain);
+        let snow= document.createElement("p");
+          snow.innerText= forecastDaySnowChance+ data.forecast.forecastday[i].day.daily_chance_of_snow;
+          document.getElementById("deets").appendChild(snow);
+        let hr= document.createElement("hr");
+          document.getElementById("deets").appendChild(hr);
       }
     })
   }
