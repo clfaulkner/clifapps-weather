@@ -149,12 +149,25 @@ function getDetails(){
     .then(data => {
       console.log(data);
       for (let i=0; i<3; i++){
+        function getWeekDay(){
+          let day = new Date(data.forecast.forecastday[index].date);
+          let day2 = day.toUTCString()
+          let day3 = day2.substr(0,3);
+          let weekDay = day3.toUpperCase();
+          return weekDay;
+        }
+        // CALL getWeekDay
+        getWeekDay();
         console.log(data.forecast.forecastday[i].date + ' ' + data.forecast.forecastday[i].day.maxtemp_f);
         // SECTION div for details
         let div1= document.createElement("div");
           div1.className= "w3-center";
           div1.id= "deets";
         document.getElementById("three-day").appendChild(div1);
+        let day= document.createElement("p");
+          div1.className= "w3-center";
+        document.getElementById("deets").appendChild(day);
+
 
       }
     })
