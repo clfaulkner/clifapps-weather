@@ -1,16 +1,14 @@
 {
   "name": "clf-weather",
-  "version": "1.0.0",
-  "description": "Develop clf-weather here until Firebase issues resolved.",
+  "version": "Alpha",
+  "description": "Current weather + 3-day forecast",
   "main": "index.html",
   "scripts": {
-    "start": "parcel index.html --open",
-    "build": "parcel build index.html"
+    "start": "",
+    "build": ""
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "7.2.0",
-    "parcel-bundler": "^1.6.1"
   },
   "keywords": []
 }
