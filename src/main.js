@@ -1,5 +1,6 @@
 // SECTION todo's
 // TODO delete unnecessary commented lines
+// TODO consider using 1 load function
 
 // * weather vars
 let temp = "Temp (F): ",
@@ -94,7 +95,6 @@ function changeWthr(){
 // SECTION Get 3-day weather and details
 function getDetails(){
   // declare vars
-  // TODO consider using vars already in getWthr()
   let api = "https://api.weatherapi.com/v1/forecast.json?key="
   let apiKey = "7d94c74d88d147c89f5150101201806";
   let url = api + apiKey + "&q=" + city + " " + st + "&days=3"
@@ -108,7 +108,7 @@ function getDetails(){
         div1.className= "w3-center deets";
         div1.id= "deets";
         document.getElementById("three-day").appendChild(div1);
-      // ALERT for... statement to populate 3-day forecast
+      // NOTE for... statement to populate 3-day forecast
       for (let i=0; i<3; i++){
         // get and format weekday
         let day = new Date(data.forecast.forecastday[i].date);
