@@ -1,17 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300;400;700&display=swap');
-/* font-family: 'Big Shoulders Display', cursive; */
-/* ^^ how to use above font ^^ */
+/* ----------------------------------- */
+/* SECTION todo's */
 
+
+/* ----------------------------------- */
+/* IMPORTS */
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300;400;700&display=swap');
+/* ^^ usage: font-family: 'Big Shoulders Display', cursive; */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik&display=swap');
+/* ^^ usage: font-family: 'Pacifico', cursive; || font-family: 'Rubik', sans-serif;  */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+Double+Pica:ital@1&family=Pacifico&family=Rubik&display=swap');
+/* font-family: 'IM Fell Double Pica', serif;
+
+font-family: 'Pacifico', cursive;
+
+font-family: 'Rubik', sans-serif; */
+
+/* ----------------------------------- */
 body {
   background-image: url("../images/sky-414199_1280.jpg");
   background-size: cover;
   color: antiquewhite;
+  font-family: 'Big Shoulders Display', cursive;
 }
 /* .details{
   color: antiquewhite;
 } */
 .background{
   background-image: linear-gradient(black,darkblue,DeepSkyBlue);
+}
+.banner{
+  font-family: 'IM Fell Double Pica', serif;
+  color: rgb(151, 10, 116);
+}
+.deets{
+  font-family: 'Big Shoulders Display', cursive;
+  font-size: x-large;
+}
+.dropper{
+  color: darkred; 
+  font-weight: bold;
+}
+#btn-change{
+  font-family: Helvetica, sans-serif;
+  font-size: large;
+  color: black;
 }
 /* 
 .bigger{

@@ -43,14 +43,8 @@ store();
 // SECTION: fetch current weather
 function getWthr(){
   // declare vars
-  let api = "https://api.weatherapi.com/v1/current.json?key="
-  let apiKey = "7d94c74d88d147c89f5150101201806";
-  // let zip = "&q=56560";
-  let url = api +
-    apiKey + "&q=" +
-    // city + " " + st
-    city + " " + st
-    // zip
+  let api= "https://api.weatherapi.com/v1/current.json?key=7d94c74d88d147c89f5150101201806&q=";
+  let url= api+city+' '+st;
   fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -111,7 +105,7 @@ function getDetails(){
       console.log(data);
       // divs to create row and cells for details
       let div1= document.createElement("div");
-        div1.className= "w3-center";
+        div1.className= "w3-center deets";
         div1.id= "deets";
         document.getElementById("three-day").appendChild(div1);
       // ALERT for... statement to populate 3-day forecast

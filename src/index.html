@@ -1,50 +1,102 @@
 <!DOCTYPE html>
+<!-- CLiFApps Weather Tower v2.0 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <!-- NOTE ^^ usage: font-family: 'Pacifico', cursive; -->
+
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
 	<link rel="stylesheet" href="styles.css">
   <title>CLiFApps Weather Tower</title>
 </head>
+<!-- ************************************** -->
+<!-- SECTION To-Do's' -->
+<!-- TODO clean up style, class, and id attributes -->
+<!-- TODO remove unused commented-out sections -->
+<!-- TODO add firebase hosting -->
+<!-- TODO add change location button -->
 <body>
 <!-- ************************************** -->
 <!-- SECTION Main -->
   <main class="w3-card-4 w3-content w3-round-xlarge" style="max-width: 968px;">
-    <!-- <div class="w3-indigo"> -->
     <div class="">
-      <h1 class="w3-center">CLiFApps Weather Tower</h1>
+      <h1 class="w3-center banner">CLiFApps Weather Tower</h1>
     </div>
-      <div class="background"> <!-- NOTE gradient starts here -->
-        <div class="w3-center">
-          <h1 id="local" class="">Location</h1>
-          <h2 id="desc" class="">Description</h2>
-          <!-- ALERT load from js file -->
-          <img src="" alt="weather icon" id="icon" class="">  
-        </div>
-      <div class="w3-row">
-        <div class="w3-col w3-container m6" style="padding-left: 6rem;">
-          <p id="temp-f">Temp F</p>
-          <p id="feelslike-f">Feels like</p>
-        </div>
-        <div class="w3-col w3-container m6" style="padding-left: 4rem;">
-          <p id="wind-mph">Wind</p>
-          <p id="gust-mph">Wind gust</p>
-          <p id="wind-dir">Wind Dir</p>
-          <p id="humidity">Humidity</p>
-        </div>
+    <div class="background"> <!-- NOTE gradient starts here -->
+      <div class="w3-center">
+        <h1 id="local" class="deets" style="font-size: 2.5rem;" >Location</h1>
+        <h2 id="desc" class="deets">Description</h2>
+        <img src="" alt="weather icon" id="icon" class="">  <!-- NOTE load from js file -->
       </div>
+    <div class="w3-row">
+      <div class="w3-col w3-container m6" style="padding-left: 6rem;">
+        <p id="temp-f" class="deets">Temp F</p>
+        <p id="feelslike-f" class="deets">Feels like</p>
       </div>
+      <div class="w3-col w3-container m6" style="padding-left: 4rem;">
+        <p id="wind-mph" class="deets">Wind</p>
+        <p id="gust-mph" class="deets">Wind gust</p>
+        <p id="wind-dir" class="deets">Wind Dir</p>
+        <p id="humidity" class="deets" >Humidity</p>
+      </div>
+    </div>
+    </div>
+    <!-- BTN change location button -->
+    <button id="btn-change" class="w3-button w3-block" onclick="document.getElementById('change-wthr').style.display='block'">Change Location</button>
 
 <!-- ************************************** -->
 <!-- SECTION 3-day forecast -->
     <details>
-      <summary style="color: darkred; font-weight: bold;">Three Day Forecast</summary>
+      <summary class="dropper">Three Day Forecast</summary>
       <section id="three-day" class="background" title="3 day forecast" ></section>
     </details>
   </main>
 
-  <script src="main.js"></script>
+<!-- ************************************** -->
+<!-- SECTION modals -->
+<!-- change location modal -->
+<!-- setup modal -->
+<div id="change-wthr" title="Change weather location modal" class="w3-modal">
+  <!-- modal content -->
+  <div class="w3-modal-content w3-card-4" style="max-width:500px">
+    <div class="w3-panel w3-deep-purple">
+      <h1>Change Weather Location</h1>
+    </div>
+    <!-- input form  -->
+    <form class="w3-container">
+      <div class="w3-section">
+        <!-- input city -->
+        <input type="text" id="change-city" class="w3-input w3-border w3-margin-bottom" placeholder="Enter city name in lowercase" required>
+        <!-- input state -->
+        <input type="text" id="change-st" class="w3-input w3-border w3-margin-bottom" placeholder="Enter 2-digit state in lowercase" required>
+        <!-- input button -->
+        <button class="w3-button w3-block w3-green w3-section w3-padding" onclick="changeWthr()">Change</button>
+      </div>
+    </form>
+    <!-- cancel change and close modal -->
+    <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+      <!-- cancel/close modal -->
+      <button class="w3-button w3-red" onclick="document.getElementById('change-wthr').style.display='none'">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- ************************************** -->
+<!-- SECTION firebase -->
+<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.8/firebase-app.js"></script>
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<!-- <script src="https://www.gstatic.com/firebasejs/8.2.8/firebase-analytics.js"></script> -->
+<!-- NOTE only using Hosting at this time -->
+<!-- Add Firebase products that you want to use -->
+<!-- <script src="https://www.gstatic.com/firebasejs/8.2.8/firebase-auth.js"></script> -->
+<!-- <script src="https://www.gstatic.com/firebasejs/8.2.8/firebase-firestore.js"></script> -->
+
+<script src="main.js"></script>
 </body>
 </html>
