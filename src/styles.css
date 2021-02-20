@@ -18,8 +18,8 @@ font-family: 'Rubik', sans-serif; */
 
 /* ----------------------------------- */
 body {
-  /* background-image: url("sky-414199_1280.jpg"); doesn't work on Firebase */
-  background-color: rgb(158, 9, 151);
+  background-image: url("sky-414199_1280.jpg"); doesn't work on Firebase
+  /* background-color: rgb(158, 9, 151); */
   background-size: cover;
   color: antiquewhite;
   font-family: 'Big Shoulders Display', cursive;
@@ -32,14 +32,14 @@ body {
 }
 .banner{
   font-family: 'IM Fell Double Pica', serif;
-  color: rgb(233, 182, 220);
+  color: rgb(194, 15, 149);
 }
 .deets{
   font-family: 'Big Shoulders Display', cursive;
   font-size: x-large;
 }
 .dropper{
-  color: rgb(233, 182, 220); 
+  color: rgb(151, 8, 115); 
   font-weight: bold;
 }
 #btn-change{
