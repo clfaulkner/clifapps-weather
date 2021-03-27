@@ -1,24 +1,17 @@
 /* ----------------------------------- */
-/* SECTION todo's */
+/* SECTION - todo's */
 
-
+/* SECTION - IMPORTS */
 /* ----------------------------------- */
-/* IMPORTS */
 /* FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300;400;700&display=swap');
 /* ^^ usage: font-family: 'Big Shoulders Display', cursive; */
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik&display=swap');
-/* ^^ usage: font-family: 'Pacifico', cursive; || font-family: 'Rubik', sans-serif;  */
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+Double+Pica:ital@1&family=Pacifico&family=Rubik&display=swap');
-/* font-family: 'IM Fell Double Pica', serif;
-
-font-family: 'Pacifico', cursive;
-
-font-family: 'Rubik', sans-serif; */
-
+/* ^^ usage: font-family: 'IM Fell Double Pica', serif; font-family: 'Pacifico', cursive; font-family: 'Rubik', sans-serif; */
 /* ----------------------------------- */
+
 body {
-  background-image: url("sky-414199_1280.jpg"); doesn't work on Firebase
+  background-image: url("sky-414199_1280.jpg");
   /* background-color: rgb(158, 9, 151); */
   background-size: cover;
   color: antiquewhite;
